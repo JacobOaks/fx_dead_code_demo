@@ -1,4 +1,4 @@
-This repo shows how Dig callbacks [this PR](https://github.com/uber-go/dig/pull/377) and fx Running events [this commit](https://github.com/JacobOaks/fx/commit/1532d1bd3c7d3926ee3e98d8d15e47206e7192ef#diff-a04d0b8fa4df9f46eb6a4ee7c75554d41ab5c2343bea18ba09fc62538953d9a7)
+This repo shows how Dig callbacks from [this PR](https://github.com/uber-go/dig/pull/377) and fx Running events from [this commit](https://github.com/JacobOaks/fx/commit/1532d1bd3c7d3926ee3e98d8d15e47206e7192ef#diff-a04d0b8fa4df9f46eb6a4ee7c75554d41ab5c2343bea18ba09fc62538953d9a7)
 can be used to easily detect dead Fx constructors/decorators.
 
 This is done through a custom `fxevent.Logger` that wraps your usual logger,
