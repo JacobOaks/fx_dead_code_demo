@@ -1,5 +1,7 @@
 github.com/JacobOaks/dig v1.15.1-0.20230322221759-1f96d68bb026 h1:K57FfJvZ9lDBboXFEBSThz7avrZd3nPvHir09viDw4w=
 github.com/JacobOaks/dig v1.15.1-0.20230322221759-1f96d68bb026/go.mod h1:rTxpf7l5I0eBTlE6/9RL+lDybC7WFwY2QH55ZSjy1mU=
+github.com/JacobOaks/fx v0.0.0-20230323170247-1532d1bd3c7d h1:isLriD7t/3OJly9jJ9XvdRX1wRsSOqawOu5iW0RZP/I=
+github.com/JacobOaks/fx v0.0.0-20230323170247-1532d1bd3c7d/go.mod h1:+uc8n4CtfPnFRIOoI6IJgLuVnU1y2+ljY8lrysmPkMs=
 github.com/benbjohnson/clock v1.3.0 h1:ip6w0uFQkncKQ979AypyG0ER7mqUSBdKLOgAle/AT8A=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
