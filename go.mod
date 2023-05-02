@@ -2,8 +2,6 @@ module fx_dead_code_demo
 
 go 1.20
 
-replace go.uber.org/fx => github.com/JacobOaks/fx v0.0.0-20230323170247-1532d1bd3c7d
-
 require go.uber.org/fx v0.0.0-00010101000000-000000000000
 
 require (
@@ -14,4 +12,6 @@ require (
 	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect
 )
 
-replace go.uber.org/dig => github.com/JacobOaks/dig v1.15.1-0.20230322221759-1f96d68bb026
+replace go.uber.org/fx => github.com/JacobOaks/fx v0.0.0-20230502170936-64fdf63ce654
+
+replace go.uber.org/dig => go.uber.org/dig v1.16.2-0.20230501184430-027aa21628f4

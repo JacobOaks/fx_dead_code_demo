@@ -1,5 +1,4 @@
-This repo shows how Dig callbacks from [this PR](https://github.com/uber-go/dig/pull/377) and fx Running events from [this commit](https://github.com/JacobOaks/fx/commit/1532d1bd3c7d3926ee3e98d8d15e47206e7192ef#diff-a04d0b8fa4df9f46eb6a4ee7c75554d41ab5c2343bea18ba09fc62538953d9a7)
-can be used to easily detect dead Fx constructors/decorators.
+This repo shows how Dig callbacks from [this PR](https://github.com/uber-go/dig/pull/377) and fx Running events from [this PR](https://github.com/uber-go/fx/pull/1077) can be used to easily identify dead Fx constructors/decorators.
 
 This is done through a custom `fxevent.Logger` that wraps your usual logger,
 but additionally keeps track of functions that haven't been run yet.
@@ -10,11 +9,31 @@ functions that aren't used, which we print out, providing output:
 
 ```
 Found 5 dead functions:
-- MyModule:main.uint16ToUnit32()
-- MySubModule:fx_dead_code_demo/subpkg.StringToBool()
-- go.uber.org/fx.(*App).shutdowner-fm()
-- go.uber.org/fx.New.func1()
-- go.uber.org/fx.(*App).dotGraph-fm()
+ - "MySubModule:fx_dead_code_demo/subpkg.StringToBool()" from:
+        fx_dead_code_demo/subpkg.init (/home/user/go/src/github.com/JacobOaks/fx_dead_code_demo/subpkg/subpkg.go:11)
+                 runtime.doInit (/opt/go/root/src/runtime/proc.go:6506)
+                 runtime.doInit (/opt/go/root/src/runtime/proc.go:6483)
+                 runtime.main (/opt/go/root/src/runtime/proc.go:233)
+
+ - "MyModule:main.uint16ToUint32()" from:
+        main.init (/home/user/go/src/github.com/JacobOaks/fx_dead_code_demo/main.go:25)
+                 runtime.doInit (/opt/go/root/src/runtime/proc.go:6506)
+                 runtime.main (/opt/go/root/src/runtime/proc.go:233)
+
+ - "go.uber.org/fx.New.func1()" from:
+        go.uber.org/fx.New (/home/user/go-repos/pkg/mod/github.com/!jacob!oaks/fx@v0.0.0-20230502170936-64fdf63ce654/app.go:475)
+                 main.main (/home/user/go/src/github.com/JacobOaks/fx_dead_code_demo/main.go:36)
+                 runtime.main (/opt/go/root/src/runtime/proc.go:250)
+
+ - "go.uber.org/fx.(*App).shutdowner-fm()" from:
+        go.uber.org/fx.New (/home/user/go-repos/pkg/mod/github.com/!jacob!oaks/fx@v0.0.0-20230502170936-64fdf63ce654/app.go:475)
+                 main.main (/home/user/go/src/github.com/JacobOaks/fx_dead_code_demo/main.go:36)
+                 runtime.main (/opt/go/root/src/runtime/proc.go:250)
+
+ - "go.uber.org/fx.(*App).dotGraph-fm()" from:
+        go.uber.org/fx.New (/home/user/go-repos/pkg/mod/github.com/!jacob!oaks/fx@v0.0.0-20230502170936-64fdf63ce654/app.go:475)
+                 main.main (/home/user/go/src/github.com/JacobOaks/fx_dead_code_demo/main.go:36)
+                 runtime.main (/opt/go/root/src/runtime/proc.go:250)
 ```
 
 The bottom three are internal Fx functions that get provided to every app.

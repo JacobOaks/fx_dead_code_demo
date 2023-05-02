@@ -49,11 +49,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	dead := dfw.Dead()
-	fmt.Printf("Found %d dead functions:\n", len(dead))
-	for _, fn := range dead {
-		fmt.Printf(" - %v\n", fn)
-	}
+	dfw.PrintReport()
 
 	// Output:
 
